@@ -18,6 +18,20 @@ public class App {
         ArrayList<Product> inventory = getInventory();
         displayInventory(inventory);
 
+    }
+
+    private static void displayInventory(ArrayList<Product> inventory) {
+        for (Product product : inventory) {
+            System.out.println("ID: " + product.getId());
+            System.out.println("Name: " + product.getName());
+            System.out.println("Price: " + product.getPrice());
+            System.out.println("--------------------");
+        }
+    }
+
+    private static ArrayList<Product> getInventory() {
+
+        ArrayList<Product> inventory = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader("inventory.csv");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -40,25 +54,6 @@ public class App {
         } catch (IOException e) {
             System.out.println("There was an error reading the inventory file. Check the location of the file.");
         }
-    }
-
-    private static void displayInventory(ArrayList<Product> inventory) {
-        for (Product product : inventory) {
-            System.out.println("ID: " + product.getId());
-            System.out.println("Name: " + product.getName());
-            System.out.println("Price: " + product.getPrice());
-            System.out.println("--------------------");
-        }
-    }
-
-    private static ArrayList<Product> getInventory() {
-        ArrayList<Product> inventory = new ArrayList<>();
-
-        inventory.add(new Product(5555, "Coffee Beans", 29.99));
-        inventory.add(new Product(6452, "Coffee Cups", 14.85));
-        inventory.add(new Product(5241, "Banana Bread", 2.29));
-        inventory.add(new Product(6472, "Coffee Pots", 35.99));
-        inventory.add(new Product(8972, "Coffee filters", 19.65));
         return inventory;
     }
 }
