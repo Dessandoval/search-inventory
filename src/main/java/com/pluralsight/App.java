@@ -18,7 +18,6 @@ public class App {
         ArrayList<Product> inventory = getInventory();
         displayInventory(inventory);
 
-        // Added the opening try block here
         try {
             FileReader fileReader = new FileReader("inventory.csv");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
